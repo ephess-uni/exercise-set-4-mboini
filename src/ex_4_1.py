@@ -18,9 +18,6 @@ def num_shutdowns(logfile): #function signature
     shutdown_events = get_shutdown_events(logfile)
 
     num_shutdowns = len(shutdown_events)//2
-
-    # return the number of shutdown events
-
     return num_shutdowns
 
 
