@@ -15,11 +15,12 @@ FILENAME = get_data_file_path('messages.log')
 
 def num_shutdowns(logfile): #function signature
 
-    shutdown_events = get_shutdown_events(logfile)
-    
-    num_shutdowns = len(shutdown_events) // 2
+    Shutdown_events = get_shutdown_events(logfile)
 
-    # Return the number of shutdown events
+    num_shutdowns = len(shutdown_events)//2
+
+    # return the number of shutdown events
+
     return num_shutdowns
 
 
