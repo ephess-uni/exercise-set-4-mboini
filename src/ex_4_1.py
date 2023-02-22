@@ -14,13 +14,10 @@ FILENAME = get_data_file_path('messages.log')
 
 
 def num_shutdowns(logfile):
-    
-    
+   
     shutdown_events = get_shutdown_events(logfile)
+    return len(shutdown_events) // 2
 
-    num_shutdowns = len(shutdown_events)//2
-
-    return num_shutdowns
 
 
 # >>>> The code below will call your function and print the results
