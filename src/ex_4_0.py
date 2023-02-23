@@ -16,16 +16,16 @@ def get_shutdown_events(logfile): #function signature
         lines = file.readlines()
 
     
-    shutdown_entries = []
+    shutdown_events = []
    
     for line in lines:
         
         if "Shutdown initiated" in line:
             
-            shutdown_entries.append(line.strip())
+            shutdown_events.append(line.strip())
 
-    # Return the list of shutdown entries
-    return shutdown_entries
+    # Return the list of shutdown events
+    return shutdown_events
 
 
 # >>>> The code below will call your function and print the results
