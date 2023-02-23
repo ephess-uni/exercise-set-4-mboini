@@ -17,7 +17,7 @@ def num_shutdowns(logfile):
 
     shutdown_events = get_shutdown_events(logfile)
 
-    count = len(shutdown_events) // 2
+    count = len(shutdown_events)
 
     return count
     
