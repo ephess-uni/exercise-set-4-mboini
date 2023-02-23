@@ -13,10 +13,14 @@ FILENAME = get_data_file_path('messages.log')
 # >>>> DO NOT MODIFY CODE ABOVE <<<<
 
 
-def num_shutdowns(logfile):
-    shutdown_events = get_shutdown_events(logfile)
-    return len(shutdown_events) // 2
-
+def num_shutdowns(logfile='data/messages.log'):
+    with open(logfile) as file:
+        lines = file.readlines()
+        count = 0
+        for line in lines:
+            if "shutdown" in line:
+                count += 1
+        return count
 
 
 # >>>> The code below will call your function and print the results
