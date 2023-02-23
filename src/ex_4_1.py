@@ -14,15 +14,13 @@ FILENAME = get_data_file_path('messages.log')
 
 
 def num_shutdowns(logfile):
-    with open(logfile) as f:
-        loglines = f.readlines()
-        shutdown_count = 0
-        for line in loglines:
-            if 'shutdown' in line.lower():
-                shutdown_count += 1
-        return shutdown_count
 
+    shutdown_events = get_shutdown_events(logfile)
 
+    count = len(shutdown_events) // 2
+
+    return count
+    
 # >>>> The code below will call your function and print the results
 if __name__ == "__main__":
     print(f'{num_shutdowns(FILENAME)=}')
