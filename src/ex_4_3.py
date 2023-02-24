@@ -18,6 +18,7 @@ FILENAME = get_data_file_path("messages.log")
 def time_between_shutdowns(logfile):
     
     shutdowns = get_shutdown_events(logfile)
+
     if not shutdowns:
         raise ValueError ("No Shutdown events found in the log file")
     first_shutdown = shutdowns[0]
