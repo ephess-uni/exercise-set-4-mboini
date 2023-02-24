@@ -1,6 +1,6 @@
 """ ex_4_3.py """
 import os
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 try:
     from src.ex_4_0 import get_shutdown_events
@@ -17,19 +17,12 @@ FILENAME = get_data_file_path("messages.log")
 
 
 def time_between_shutdowns(logfile):
-
     shutdowns = get_shutdown_events(logfile)
-
     first_shutdown = shutdowns[0]
-
     last_shutdown = shutdowns[-1]
-
-    first_shutdown_datetime = logstamp_to_datetime(first_shutdown['date'])
-
-    last_shutdown_datetime = logstamp_to_datetime(last_shutdown['date'])
-
+    first_shutdown_datetime = logstamp_to_datetime(first_shutdown['timestamp'])
+    last_shutdown_datetime = logstamp_to_datetime(last_shutdown['timestamp'])
     time_difference = last_shutdown_datetime - first_shutdown_datetime
-
     return time_difference
 
 
