@@ -14,21 +14,18 @@ except ImportError:
 FILENAME = get_data_file_path("messages.log")
 # >>>> DO NOT MODIFY CODE ABOVE <<<<
 
+
+from datetime import timedelta
+
 def time_between_shutdowns(logfile):
+    events = get_shutdown_events(logfile)
+    if len(events) >= 2:
+        last_shutdown = logstamp_to_datetime(events[-1])
+        prev_shutdown = logstamp_to_datetime(events[-2])
+        return last_shutdown - prev_shutdown
+    else:
+        return timedelta()
 
-    shutdowns = get_shutdown_events(logfile)
-
-    first_shutdown = shutdowns[0]
-
-    last_shutdown = shutdowns[-1]
-
-    first_shutdown_datetime = logstamp_to_datetime(first_shutdown['date'])
-
-    last_shutdown_datetime = logstamp_to_datetime(last_shutdown['date'])
-
-    time_difference = last_shutdown_datetime - first_shutdown_datetime
-
-    return time_difference
 
 
 # >>>> The code below will call your function and print the results
