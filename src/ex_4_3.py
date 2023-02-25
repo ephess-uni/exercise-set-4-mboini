@@ -15,17 +15,18 @@ FILENAME = get_data_file_path("messages.log")
 # >>>> DO NOT MODIFY CODE ABOVE <<<<
 
 
-from datetime import timedelta
-
 def time_between_shutdowns(logfile):
+    """
+    Your docstring here.  Replace the pass keyword below with your implementation.
+    """
     events = get_shutdown_events(logfile)
-    if len(events) >= 2:
-        last_shutdown = logstamp_to_datetime(events[-1])
-        prev_shutdown = logstamp_to_datetime(events[-2])
-        return last_shutdown - prev_shutdown
-    else:
-        return timedelta()
-
+    shutdown_close_time=events[-1].split(' ')[1]
+    shutdown_init_time=events[0].split(' ')[1]
+    
+    biginingtime= logstamp_to_datetime(shutdown_init_time)
+    endingtime= logstamp_to_datetime(shutdown_close_time)
+    time_difference = endingtime - biginingtime
+    return time_difference
 
 
 # >>>> The code below will call your function and print the results
