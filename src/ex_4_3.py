@@ -14,7 +14,6 @@ except ImportError:
 FILENAME = get_data_file_path("messages.log")
 # >>>> DO NOT MODIFY CODE ABOVE <<<<
 
-
 def time_between_shutdowns(logfile):
 
     shutdowns = get_shutdown_events(logfile)
